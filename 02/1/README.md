@@ -1,4 +1,4 @@
-# Day 2 - Part 2
+# Day 2 - Part 1
 
 Now, you need to figure out how to pilot this thing.
 

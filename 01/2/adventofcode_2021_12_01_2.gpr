@@ -6,7 +6,7 @@ project Adventofcode_2021_12_01_2 is
    for Object_Dir use "obj";
    for Create_Missing_Dirs use "True";
    for Exec_Dir use "bin";
-   for Main use ("adventofcode_2021_12_01_2.adb");
+   for Main use ("main.adb");
 
    type Enabled_Kind is ("enabled", "disabled");
    Compile_Checks : Enabled_Kind := External ("ADVENTOFCODE_2021_12_01_2_COMPILE_CHECKS", "enabled");

@@ -5,7 +5,7 @@ with Ada.Containers.Vectors,
 
 with Utils;
 
-procedure Adventofcode_2021_12_01_2 is
+procedure Main is
    use Ada.Text_IO;
    use Utils;
    use type Ada.Containers.Count_Type;
@@ -88,4 +88,4 @@ exception
       Put_Line ("Error: " & Ada.Exceptions.Exception_Message (Occur));
 
       Close_If_Open (File);
-end Adventofcode_2021_12_01_2;
+end Main;

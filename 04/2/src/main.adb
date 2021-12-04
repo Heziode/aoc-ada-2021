@@ -229,7 +229,7 @@ begin
          while Ada.Containers.Count_Type (Current_Lookup_Index) < Current_Found.Length loop
             declare
                Current_Lookup : constant Lookup_Item := Current_Found.Element (Current_Lookup_Index);
-               Current_Board : Grid := Boards.Element (Current_Lookup.Board_Id);
+               Current_Board  : Grid                 := Boards.Element (Current_Lookup.Board_Id);
             begin
                Current_Board (Current_Lookup.Line, Current_Lookup.Column).Marked := True;
                Boards.Replace_Element (Current_Lookup.Board_Id, Current_Board);

@@ -212,9 +212,8 @@ begin
    end Load_Boards;
 
    Solve_Puzzle : declare
-      Current_Value        : Bingo_Values;
-      Current_Found        : Lookup_Item_Vectors.Vector;
-      Current_Lookup_Index : Natural := Natural'First;
+      Current_Value : Bingo_Values;
+      Current_Found : Lookup_Item_Vectors.Vector;
    begin
       Solve : loop
          Ball_Box.Dequeue (Current_Value);
@@ -226,10 +225,9 @@ begin
          end if;
 
          --  For each times the current value is on a board
-         while Ada.Containers.Count_Type (Current_Lookup_Index) < Current_Found.Length loop
+         for Current_Lookup of Current_Found loop
             declare
-               Current_Lookup : constant Lookup_Item := Current_Found.Element (Current_Lookup_Index);
-               Current_Board  : Grid                 := Boards.Element (Current_Lookup.Board_Id);
+               Current_Board : Grid := Boards.Element (Current_Lookup.Board_Id);
             begin
                Current_Board (Current_Lookup.Line, Current_Lookup.Column).Marked := True;
                Boards.Replace_Element (Current_Lookup.Board_Id, Current_Board);
@@ -248,10 +246,7 @@ begin
                end if;
 
             end;
-            Current_Lookup_Index := Current_Lookup_Index + 1;
          end loop;
-
-         Current_Lookup_Index := Natural'First;
 
          <<Continue>>
          exit Solve when Ball_Box.Current_Use = 0;

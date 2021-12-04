@@ -2,14 +2,19 @@ with Ada.Containers.Hashed_Maps,
      Ada.Containers.Unbounded_Synchronized_Queues,
      Ada.Containers.Synchronized_Queue_Interfaces,
      Ada.Containers.Vectors,
+     Ada.Execution_Time,
      Ada.Exceptions,
      Ada.Integer_Text_IO,
+     Ada.Real_Time,
      Ada.Text_IO;
 
 with Utils;
 
 procedure Main is
-   use Ada.Containers, Ada.Text_IO;
+   use Ada.Containers,
+       Ada.Execution_Time,
+       Ada.Real_Time,
+       Ada.Text_IO;
    use Utils;
 
    type Bingo_Range is range 1 .. 5;
@@ -126,10 +131,12 @@ procedure Main is
       return Sum * Current_Value;
    end Compute_Board_Value;
 
-   File     : File_Type;
-   Ball_Box : Queue;
-   Boards   : Vector := Empty_Vector;
-   Lookup   : Map    := Empty_Map;
+   File                 : File_Type;
+   Ball_Box             : Queue;
+   Boards               : Vector := Empty_Vector;
+   Lookup               : Map    := Empty_Map;
+   Start_Time, End_Time : CPU_Time;
+   Execution_Duration   : Time_Span;
 begin
    Get_File (File);
 
@@ -206,6 +213,7 @@ begin
       end loop;
    end Load_Boards;
 
+   Start_Time := Ada.Execution_Time.Clock;
    Solve_Puzzle : declare
       Current_Value : Bingo_Values;
       Current_Found : Lookup_Item_Vectors.Vector;
@@ -241,6 +249,10 @@ begin
          exit Solve when Ball_Box.Current_Use = 0;
       end loop Solve;
    end Solve_Puzzle;
+   End_Time := Ada.Execution_Time.Clock;
+
+   Execution_Duration := End_Time - Start_Time;
+   Put_Line ("(Took " & Duration'Image (To_Duration (Execution_Duration) * 1_000_000) & "µs)");
 
    Close_If_Open (File);
 

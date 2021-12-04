@@ -23,7 +23,7 @@ procedure Main is
    use Bingo_Values_IO;
 
    type Grid_Element is record
-      Value  : Natural;
+      Value  : Bingo_Values;
       Marked : Boolean;
    end record;
 

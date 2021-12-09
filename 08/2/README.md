@@ -31,10 +31,10 @@ So, the unique signal patterns would correspond to the following digits:
 
 Then, the four digits of the output value can be decoded:
 
-*   `cdfeb`: `_5_`
-*   `fcadb`: `_3_`
-*   `cdfeb`: `_5_`
-*   `cdbaf`: `_3_`
+*   `cdfeb`: **`5`**
+*   `fcadb`: **`3`**
+*   `cdfeb`: **`5`**
+*   `cdbaf`: **`3`**
 
 Therefore, the output value for this entry is **`5353`**.
 
@@ -51,7 +51,7 @@ Following this same process for each entry in the second, larger example above, 
 *   `gbdfcae bgc cg cgb`: `8717`
 *   `fgae cfgab fg bagce`: `4315`
 
-Adding all of the output values in this larger example produces `_61229_`.
+Adding all of the output values in this larger example produces **`61229`**.
 
 For each entry, determine all of the wire/segment connections and decode the four-digit output values. 
 

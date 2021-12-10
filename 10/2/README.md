@@ -1,6 +1,6 @@
 # Day 10 - Part 2
 
-<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Now, discard the corrupted lines.  The remaining lines are <strong>incomplete</strong>.</p>
+<article class="day-desc"><p>Now, discard the corrupted lines.  The remaining lines are <strong>incomplete</strong>.</p>
 <p>Incomplete lines don't have any incorrect characters - instead, they're missing some closing characters at the end of the line. To repair the navigation subsystem, you just need to figure out <strong>the sequence of closing characters</strong> that complete all open chunks in the line.</p>
 <p>You can only use closing characters (<code>)</code>, <code>]</code>, <code>}</code>, or <code>&gt;</code>), and you must add them in the correct order so that only legal pairs are formed and all chunks end up closed.</p>
 <p>In the example above, there are five incomplete lines:</p>

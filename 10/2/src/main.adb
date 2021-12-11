@@ -1,7 +1,5 @@
 with Ada.Characters,
      Ada.Containers.Hashed_Maps,
-     Ada.Containers.Synchronized_Queue_Interfaces,
-     Ada.Containers.Unbounded_Synchronized_Queues,
      Ada.Containers.Vectors,
      Ada.Execution_Time,
      Ada.Long_Long_Integer_Text_IO,
@@ -18,26 +16,26 @@ procedure Main is
 
    subtype Chunks is Character
      with Static_Predicate => Chunks in
-       '('..'('
-         | '{'..'{'
-           | '['..'['
-             | '<'..'<'
-               | ')'..')'
-                 | '}'..'}'
-                   | ']'..']'
-                     | '>'..'>';
+       '(' .. '('
+         | '{' .. '{'
+           | '[' .. '['
+             | '<' .. '<'
+               | ')' .. ')'
+                 | '}' .. '}'
+                   | ']' .. ']'
+                     | '>' .. '>';
    subtype Open_Chunks is Chunks
      with Static_Predicate => Open_Chunks in
-       '('..'('
-         | '{'..'{'
-           | '['..'['
-             | '<'..'<';
+       '(' .. '('
+         | '{' .. '{'
+           | '[' .. '['
+             | '<' .. '<';
    subtype Close_Chunks is Chunks
      with Static_Predicate => Close_Chunks in
-       ')'..')'
-         | '}'..'}'
-           | ']'..']'
-             | '>'..'>';
+       ')' .. ')'
+         | '}' .. '}'
+           | ']' .. ']'
+             | '>' .. '>';
 
    function ID_Hashed (Id : Open_Chunks) return Ada.Containers.Hash_Type is
      (Ada.Containers.Hash_Type (Open_Chunks'Pos (Id)));
@@ -53,13 +51,6 @@ procedure Main is
    package Natural_Vectors_Sorting is new Natural_Vectors.Generic_Sorting;
 
    package Chunks_Vectors_Vectors is new Ada.Containers.Vectors (Natural, Chunks_Vectors.Vector, Chunks_Vectors."=");
-
-   package Chunks_Queue_Interfaces is
-     new Ada.Containers.Synchronized_Queue_Interfaces
-       (Element_Type => Open_Chunks);
-
-   package Chunks_Queue is new Ada.Containers.Unbounded_Synchronized_Queues
-     (Queue_Interfaces => Chunks_Queue_Interfaces);
 
    Corresponding_Chunk  : Corresponding_Chunk_Maps.Map;
    File                 : File_Type;
@@ -151,7 +142,7 @@ begin
 
       declare
          use Natural_Vectors, Ada.Containers;
-         Index : constant Count_Type := Count_Type (Solutions.Length) / Count_Type (2);
+         Index : constant Count_Type := Solutions.Length / Count_Type (2);
       begin
          Result := Solutions.Element (Integer (Index));
       end;
@@ -167,10 +158,9 @@ begin
 
    Put_Line ("(Took " & Duration'Image (To_Duration (Execution_Duration) * 1_000_000) & "µs)");
 
-
    Close_If_Open (File);
 exception
-   when Occur : others =>
+   when others =>
       Close_If_Open (File);
       raise;
 end Main;

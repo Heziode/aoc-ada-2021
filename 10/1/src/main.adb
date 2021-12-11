@@ -15,26 +15,26 @@ procedure Main is
 
    subtype Chunks is Character
      with Static_Predicate => Chunks in
-       '('..'('
-         | '{'..'{'
-           | '['..'['
-             | '<'..'<'
-               | ')'..')'
-                 | '}'..'}'
-                   | ']'..']'
-                     | '>'..'>';
+       '(' .. '('
+         | '{' .. '{'
+           | '[' .. '['
+             | '<' .. '<'
+               | ')' .. ')'
+                 | '}' .. '}'
+                   | ']' .. ']'
+                     | '>' .. '>';
    subtype Open_Chunks is Chunks
      with Static_Predicate => Open_Chunks in
-       '('..'('
-         | '{'..'{'
-           | '['..'['
-             | '<'..'<';
+       '(' .. '('
+         | '{' .. '{'
+           | '[' .. '['
+             | '<' .. '<';
    subtype Close_Chunks is Chunks
      with Static_Predicate => Close_Chunks in
-       ')'..')'
-         | '}'..'}'
-           | ']'..']'
-             | '>'..'>';
+       ')' .. ')'
+         | '}' .. '}'
+           | ']' .. ']'
+             | '>' .. '>';
 
    function ID_Hashed (Id : Open_Chunks) return Ada.Containers.Hash_Type is
      (Ada.Containers.Hash_Type (Open_Chunks'Pos (Id)));
@@ -132,10 +132,9 @@ begin
 
    Put_Line ("(Took " & Duration'Image (To_Duration (Execution_Duration) * 1_000_000) & "µs)");
 
-
    Close_If_Open (File);
 exception
-   when Occur : others =>
+   when others =>
       Close_If_Open (File);
       raise;
 end Main;

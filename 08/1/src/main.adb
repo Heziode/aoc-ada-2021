@@ -30,7 +30,7 @@ begin
       begin
          while Last <= Line'Last loop
             if After_Pipe then
-               -- Process data
+               --  Process data
                if Line (Last) = ' ' then
                   Current_Size := Last - First;
                   First := Last + 1;

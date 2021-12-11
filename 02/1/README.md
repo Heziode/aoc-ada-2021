@@ -1,38 +1,30 @@
 # Day 2 - Part 1
 
-Now, you need to figure out how to pilot this thing.
-
-It seems like the submarine can take a series of commands like `forward 1`, `down 2`, or `up 3`:
-
-- `forward X` increases the horizontal position by `X` units.
-- `down X` **increases** the depth by `X` units.
-- `up X` **decreases** the depth by `X` units.
-
-Note that since you're on a submarine, `down` and `up` affect your **depth**, and so they have the opposite result of what you might expect.
-
-The submarine seems to already have a planned course (your puzzle input). You should probably figure out where it's going. For example:
-
-```
-forward 5
+<article class="day-desc"><p>Now, you need to figure out how to <span title="Tank, I need a pilot program for a B212 helicopter.">pilot this thing</span>.</p>
+<p>It seems like the submarine can take a series of commands like <code>forward 1</code>, <code>down 2</code>, or <code>up 3</code>:</p>
+<ul>
+<li><code>forward X</code> increases the horizontal position by <code>X</code> units.</li>
+<li><code>down X</code> <strong>increases</strong> the depth by <code>X</code> units.</li>
+<li><code>up X</code> <strong>decreases</strong> the depth by <code>X</code> units.</li>
+</ul>
+<p>Note that since you're on a submarine, <code>down</code> and <code>up</code> affect your <strong>depth</strong>, and so they have the opposite result of what you might expect.</p>
+<p>The submarine seems to already have a planned course (your puzzle input). You should probably figure out where it's going. For example:</p>
+<pre><code>forward 5
 down 5
 forward 8
 up 3
 down 8
 forward 2
-```
-
-Your horizontal position and depth both start at `0`. The steps above would then modify them as follows:
-
-- `forward 5` adds `5` to your horizontal position, a total of `5`.
-- `down 5` adds `5` to your depth, resulting in a value of `5`.
-- `forward 8` adds `8` to your horizontal position, a total of `13`.
-- `up 3` decreases your depth by 3, resulting in a value of `2`.
-- `down 8` adds `8` to your depth, resulting in a value of `10`.
-- `forward 2` adds `2` to your horizontal position, a total of `15`.
-
-After following these instructions, you would have a horizontal position of `15` and a depth of `10`. (Multiplying these together produces **`150`**.)
-
-Calculate the horizontal position and depth you would have after following the planned course.
-
-> **What do you get if you multiply your final horizontal position by your final depth?**
-
+</code></pre>
+<p>Your horizontal position and depth both start at <code>0</code>. The steps above would then modify them as follows:</p>
+<ul>
+<li><code>forward 5</code> adds <code>5</code> to your horizontal position, a total of <code>5</code>.</li>
+<li><code>down 5</code> adds <code>5</code> to your depth, resulting in a value of <code>5</code>.</li>
+<li><code>forward 8</code> adds <code>8</code> to your horizontal position, a total of <code>13</code>.</li>
+<li><code>up 3</code> decreases your depth by <code>3</code>, resulting in a value of <code>2</code>.</li>
+<li><code>down 8</code> adds <code>8</code> to your depth, resulting in a value of <code>10</code>.</li>
+<li><code>forward 2</code> adds <code>2</code> to your horizontal position, a total of <code>15</code>.</li>
+</ul>
+<p>After following these instructions, you would have a horizontal position of <code>15</code> and a depth of <code>10</code>. (Multiplying these together produces <code><strong>150</strong></code>.)</p>
+<p>Calculate the horizontal position and depth you would have after following the planned course. <strong>What do you get if you multiply your final horizontal position by your final depth?</strong></p>
+</article>

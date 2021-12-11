@@ -1,5 +1,5 @@
 with "../../utils/utils.gpr";
---  with "config/adventofcode_2021_08_2_config.gpr";
+with "config/adventofcode_2021_08_2_config.gpr";
 project Adventofcode_2021_08_2 is
 
    for Source_Dirs use ("src");
@@ -39,10 +39,10 @@ project Adventofcode_2021_08_2 is
    case Style_Checks is
       when "enabled" =>
          Style_Checks_Switches :=
-           ("-gnatyg",    -- GNAT Style checks
-            "-gnaty-d",   -- Disable no DOS line terminators
+           ("-gnatyg",   -- GNAT Style checks
+            "-gnaty-d",  -- Disable no DOS line terminators
             "-gnatyM120", -- Maximum line length
-            "-gnatyO");   -- Overriding subprograms explicitly marked as such
+            "-gnatyO");  -- Overriding subprograms explicitly marked as such
       when others => null;
    end case;
 

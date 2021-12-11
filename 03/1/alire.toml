@@ -1,4 +1,4 @@
-name = "adventofcode_2021_12_01_1"
+name = "adventofcode_2021_03_1"
 description = "Shiny new project"
 version = "0.0.0"
 
@@ -6,4 +6,4 @@ authors = ["Heziode"]
 maintainers = ["Heziode <heziode@protonmail.com>"]
 maintainers-logins = ["heziode"]
 
-executables = ["adventofcode_2021_12_01_1"]
+executables = ["main"]

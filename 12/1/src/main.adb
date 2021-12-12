@@ -23,9 +23,6 @@ procedure Main is
    subtype Big_Cave_Character is Character range 'A' .. 'Z';
    subtype Small_Cave_Character is Character range 'a' .. 'z';
 
---     type Big_Cave_Name is array (Positive range <>) of Big_Cave_Character;
---     type Small_Cave_Name is array (Positive range <>) of Small_Cave_Character;
-
    package Cave_Vectors is new Ada.Containers.Indefinite_Vectors (Index_Type   => Positive,
                                                                   Element_Type => String,
                                                                   "="          => "=");

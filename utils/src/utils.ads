@@ -4,6 +4,8 @@ use Ada.Text_IO;
 
 package Utils is
 
+   subtype Long_Long_Natural is Long_Long_Integer range 0 .. Long_Long_Integer'Last;
+
    --  The parameter "wcem=8" indicates that we want to open a file in
    --  UTF-8 format (which can therefore contain accents)
    DEFAULT_FILE_FORM_VALUE : constant String  := "wcem=8";
